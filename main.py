@@ -45,6 +45,39 @@ class Student:
                f"Курсы в процессе изучения: {self.courses_in_progress}\n" \
                f"Завершенные курсы: {self.finished_courses}\n"
 
+    def __eq__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на равенство ({self_grades} == {some_other_grades}):  {self_grades == some_other_grades}")
+
+    def __lt__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на меньше ({self_grades} < {some_other_grades}):  {self_grades < some_other_grades}")
+
+    def __gt__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на больше ({self_grades} > {some_other_grades}):  {self_grades > some_other_grades}")
+
     compare_students = compare
 
 class Mentor:
@@ -65,6 +98,39 @@ class Lecturer(Mentor):
                f"Фамилия: {self.surname}\n" \
                f"Средняя оценка за лекции: {calculate_medium([self])}\n"
 
+    def __eq__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на равенство ({self_grades} == {some_other_grades}):  {self_grades == some_other_grades}")
+
+    def __lt__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на меньше ({self_grades} < {some_other_grades}):  {self_grades < some_other_grades}")
+
+
+    def __gt__(self, other):
+        if isinstance(other, Student) or isinstance(other, Lecturer):
+
+            self_grades = calculate_medium([self])
+            some_other_grades = calculate_medium([other])
+
+        else:
+            return 'Ошибка'
+
+        print(f"Сравнение на больше ({self_grades} > {some_other_grades}):  {self_grades > some_other_grades}")
 
     compare_lectors = compare
 
@@ -165,7 +231,7 @@ print("В сравнении среденй оценки по всем пред�
 student_1.compare_students(student_2)
 
 # сравнение лекторов
-print("В сравнении среденй оценки по всем предметам среди лекторов")
+print("В сравнении среденей оценки по всем предметам среди лекторов")
 lecturer_1.compare_lectors(lecturer_2)
 print()
 
@@ -180,3 +246,16 @@ print()
 print(f"Средняя оценка лекторов в рамках курса {course_1}: {calculate_medium([lecturer_1, lecturer_2], course_1)}")
 print(f"Средняя оценка лекторов в рамках курса {course_2}: {calculate_medium([lecturer_1, lecturer_2], course_2)}")
 print()
+
+# сравнение лекторов через операторы сравнения
+print("2. Сравнение средней оценки по всем предметам среди лекторов")
+lecturer_1 == lecturer_2
+lecturer_1 > lecturer_2
+lecturer_1 < lecturer_2
+print()
+
+# сравнение студентов
+print("2. Сравнение средней оценки по всем предметам среди студентов")
+student_1 == student_2
+student_1 > student_2
+student_1 < student_2
